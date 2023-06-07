@@ -1,0 +1,14 @@
+[Unit]
+
+Description=adas_detected_launch
+After=network.target
+
+[Service]
+User=nvidia
+ExecStart=/bin/bash /home/nvidia/mdl_ws/src/bash/adas_detected_launch.bash
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+
+WantedBy=multi-user.target

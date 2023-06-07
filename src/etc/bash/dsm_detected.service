@@ -1,0 +1,14 @@
+[Unit]
+
+Description=dsm_detected
+After=network.target
+
+[Service]
+User=nvidia
+ExecStart=/bin/bash /home/nvidia/mdl_ws/src/etc/bash/dsm_detected.bash
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+
+WantedBy=multi-user.target

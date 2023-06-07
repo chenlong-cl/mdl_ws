@@ -1,0 +1,14 @@
+[Unit]
+
+Description=can_messags_talker
+After=network.target
+
+[Service]
+User=nvidia
+ExecStart=/bin/bash /home/nvidia/mdl_ws/src/etc/bash/can_messags_talker.bash
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+
+WantedBy=multi-user.target
