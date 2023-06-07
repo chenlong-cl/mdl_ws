@@ -1,0 +1,31 @@
+﻿1.连接USB-CAN设备，查看USB-CAN设备信息
+//以下命令是查看USB设备信息，插上USB即可查找到ID 04d8:0053 Microchip Technology, Inc. 设备，无需安装USB驱动。USB驱动已集成在二次开发库中。
+ttc@ubuntu:~$ lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 004: ID 04d8:0053 Microchip Technology, Inc. 
+Bus 002 Device 003: ID 0e0f:0002 VMware, Inc. Virtual USB Hub
+Bus 002 Device 002: ID 0e0f:0003 VMware, Inc. Virtual Mouse
+Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+ttc@ubuntu:~$ 
+
+2.编译c++文件
+方法一：进入can_test文件夹，打开终端执行：g++ -o hello_cpp main.cpp /home/ttc/Desktop/controlcan/libcontrolcan.so  -lpthread （按实际路径修改）
+
+方法二：打开can_test文件夹中的Makefile文件，修改文件中的相应的路径
+1）cd can_test/
+2) rm hello_cpp
+3) make clean && make
+
+3.执行
+sudo ./hello_cpp
+
+4.运行结果
+[sudo] password for ttc: 
+>>this is hello !
+>>open deivce success!
+>>Get VCI_ReadBoardInfo success!
+>>Serial_Num:XXXXXXXXXXX
+>>hw_Type:CAN-Linux
+>>输出CAN1通道帧ID，字节长度，字节内容等信息
+
+

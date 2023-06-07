@@ -1,0 +1,21 @@
+1.确认USB转串口驱动安装成功
+打开终端，输入“ls /dev/ttyCH9344USB*”,显示“ttyCH9344USB0,ttyCH9344USB1,ttyCH9344USB2...ttyCH9344USB7”,说明驱动安装成功，
+如果未安装驱动，参考以下方法进行安装
+
+##ttyCH9344USB*驱动安装###
+1.进入“CH9344SER_LINUX/LINUX/driver”路径下，打开终端
+1)Type "sudo make load" or "sudo insmod ch9344.ko" to load the driver dynamically
+2)Type "sudo make install" to make the driver work permanently（永久安装，推荐该方式）
+
+2.开机自动赋予“/dev/ttyUSB*”权限（若已执行，可忽略该步骤）
+1）sudo gedit /etc/udev/rules.d/70-ttyusb.rules
+2）输入 KERNEL=="ttyCH9344USB[0-9]*", MODE="0666"。
+
+3.编译“ultrasound_test.cpp”文件
+1)打开终端，输入“g++ ultrasound_test.cpp -o ultrasound_test”，生成“ultrasound_test”可执行文件
+2)输入“./ultrasound_test”,获取超声波数据
+3）返回 "E5 E5 EA 01 X FE E5 E5 EA 02 X FE E5 E5 EA 03 X FE E5 E5 EA 04 X FE E5 E5 EA 01 X FE E5 E5 EA 02 X FE E5 E5 EA 03 X FE E5 E5 EA 04 X FE"，则说明超声波雷达数据获取正常。其中X为距离值。
+
+
+
+
