@@ -1,0 +1,15 @@
+1、CAN initi目录
+CAN init目录下包含如下文件：
+canSendTest ：CAN通信发送测试可执行文件（只适用图为智盒orin，官方demo）
+canRecvTest ： CAN通信接收测试可执行文件（只适用图为智盒orin，官方demo）
+canUp.sh :  CAN通信驱动加载脚本
+ko文件：SPI-CAN驱动模块
+
+2、驱动加载，设置并设能CAN接口
+1）在当前目录下运行命令sudo ./canUp.sh
+2）在运行结束后，打印“set can0 up success!!!” ，表示can0接口已设置并启用。
+如下图，运行后，有can0 、 can1 、can2可以使用。
+注意bitrate波特率（250k bps）。
+
+
+
