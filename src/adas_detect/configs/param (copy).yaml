@@ -1,9 +1,0 @@
-demo_pp_yolov5:
-  ros__parameters:
-    device: 0
-    nms_yolo_threshold: 0.45
-    conf: 0.50
-    class_num: 68
-    nms_pp_threshold: 0.01
-    score_threshold: 0.5
-
